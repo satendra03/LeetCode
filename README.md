@@ -78,6 +78,7 @@ Contributions are welcome! If you have a better solution or additional problems 
 
 If you have any questions, suggestions, or feedback, feel free to reach out to me:
 
+- LeetCode: [satendra_03](https://leetcode.com/satendra_03/)
 - GitHub: [satendra03](https://github.com/satendra03)
 - Email: [satendrakumarparteti.work@gmail.com](mailto:satendrakumarparteti.work@gmail.com)
 
