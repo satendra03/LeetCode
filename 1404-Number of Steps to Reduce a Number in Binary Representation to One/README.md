@@ -22,8 +22,8 @@ Given a binary string `s` representing a positive integer, return the number of 
 
 ## How to Use
 
-1. **Compile**: `g++ -o reduce_binary_to_one reduce_binary_to_one.cpp`
-2. **Run**: `./reduce_binary_to_one`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
