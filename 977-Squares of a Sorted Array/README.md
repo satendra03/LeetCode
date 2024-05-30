@@ -13,8 +13,8 @@ Given an integer array `nums` sorted in non-decreasing order, return an array of
 
 ## How to Use
 
-1. **Compile**: `g++ -o sorted_squares sorted_squares.cpp`
-2. **Run**: `./sorted_squares`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
