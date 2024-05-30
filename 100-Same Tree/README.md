@@ -14,8 +14,8 @@ Given the roots of two binary trees `p` and `q`, write a function to check if th
 
 ## How to Use
 
-1. **Compile**: `g++ -o same_tree same_tree.cpp`
-2. **Run**: `./same_tree`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
