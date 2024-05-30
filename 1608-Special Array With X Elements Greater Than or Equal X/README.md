@@ -11,8 +11,8 @@ Find a number `x` in an array `nums` such that there are exactly `x` elements in
 
 ## How to Use
 
-1. **Compile**: `g++ -o special_array special_array.cpp`
-2. **Run**: `./special_array`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact  
 
