@@ -23,8 +23,8 @@ Given an array `nums`, distribute its elements into two arrays `arr1` and `arr2`
 
 ## How to Use
 
-1. **Compile**: `g++ -o distribute_elements distribute_elements.cpp`
-2. **Run**: `./distribute_elements`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
