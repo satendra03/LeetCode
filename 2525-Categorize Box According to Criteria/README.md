@@ -25,8 +25,8 @@ Given the dimensions (`length`, `width`, `height`) and `mass` of a box, categori
 
 ## How to Use
 
-1. **Compile**: `g++ -o categorize_box categorize_box.cpp`
-2. **Run**: `./categorize_box`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
