@@ -19,8 +19,8 @@ Given two strings `s` and `t` of the same length, and an integer `m` representin
 
 ## How to Use
 
-1. **Compile**: `g++ -o equal_substring equal_substring.cpp`
-2. **Run**: `./equal_substring`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
