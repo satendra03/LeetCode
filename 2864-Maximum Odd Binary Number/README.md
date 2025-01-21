@@ -15,8 +15,8 @@ Given a binary string `s`, return the maximum odd binary number that can be obta
 
 ## How to Use
 
-1. **Compile**: `g++ -o maximum_odd_binary_number maximum_odd_binary_number.cpp`
-2. **Run**: `./maximum_odd_binary_number`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 

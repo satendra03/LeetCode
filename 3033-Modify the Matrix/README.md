@@ -16,8 +16,8 @@ Given a matrix `matrix`, where `matrix[i][j] = -1` indicates that the value at c
 
 ## How to Use
 
-1. **Compile**: `g++ -o modify_matrix modify_matrix.cpp`
-2. **Run**: `./modify_matrix`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 

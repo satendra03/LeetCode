@@ -18,8 +18,8 @@ Given a string `s`, repeatedly delete characters from the beginning and the end 
 
 ## How to Use
 
-1. **Compile**: `g++ -o minimum_length minimum_length.cpp`
-2. **Run**: `./minimum_length`
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
 
 ## Contact
 
