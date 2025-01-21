@@ -22,14 +22,14 @@ The repository is structured as follows:
 
 - Each problem is stored in a directory named with the problem number and title.
 - Each problem directory contains:
-  - The solution file (e.g., `two_sum.cpp`)
+  - The solution file (e.g., `solution.cpp`)
   - A `README.md` file with a detailed explanation of the problem and the solution
 
 ## Solution Format 📝
 
 Each solution is provided in a separate file and follows this format:
 
-- **Filename:** `<problem_name>.cpp` (e.g., `two_sum.cpp`)
+- **Filename:** `solution.cpp`
 - **Docstring:** A brief description of the problem
 - **Code:** The C++ code solving the problem
 - **Comments:** Inline comments explaining key parts of the solution
@@ -60,8 +60,8 @@ Additionally, each problem directory includes a `README.md` file with:
     Each solution can be compiled and run using a C++ compiler. For example:
 
     ```bash
-    g++ two_sum.cpp -o two_sum
-    ./two_sum
+    g++ solution.cpp -o solution
+    ./solution
     ```
 
 ## Contributing 🤝
