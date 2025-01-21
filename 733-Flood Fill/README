@@ -1,0 +1,49 @@
+# Number of Provinces
+
+## Description
+
+You are given an image represented by an `m x n` grid of integers `image`, where `image[i][j]` represents the pixel value of the image. You are also given three integers `sr`, `sc`, and `color`. Your task is to perform a flood fill on the image starting from the pixel `image[sr][sc]`.
+
+To perform a flood fill:
+
+Begin with the starting pixel and change its color to `color`.
+Perform the same process for each pixel that is directly adjacent (pixels that share a side with the original pixel, either horizontally or vertically) and shares the same color as the starting pixel.
+Keep repeating this process by checking neighboring pixels of the updated pixels and modifying their color if it matches the original color of the starting pixel.
+The process stops when there are no more adjacent pixels of the original color to update.
+Return the modified image after performing the flood fill.
+
+## Approach
+
+1. **Check for Early Exit**:
+   - If the starting pixel `image[sr][sc]` already has the target `color`, return the `image` as no changes are needed.
+
+2. **Initialize Variables**:
+   - Store the color of the starting pixel in `toChange` for comparison.
+   - Define direction vectors `dx` and `dy` to move up, right, down, and left.
+   - Create a `visited` matrix to track which pixels have been processed.
+
+3. **Breadth-First Search (BFS)**:
+   - Use a queue to process all connected pixels with the same initial color.
+   - Push the starting pixel into the queue.
+   - For each pixel dequeued:
+     - If it hasn't been visited, mark it as visited and change its color.
+     - Explore its 4 neighbors using the direction vectors:
+       - If a neighbor is within bounds, has not been visited, and has the same color as `toChange`, add it to the queue.
+
+4. **Return Result**:
+   - After processing all connected pixels, return the updated `image`.
+
+
+## How to Use
+
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
+
+## Contact
+
+If you have any questions, suggestions, or feedback, feel free to reach out to me:
+
+- GitHub: [satendra03](https://github.com/satendra03)
+- Email: [satendrakumarparteti.work@gmail.com](mailto:satendrakumarparteti.work@gmail.com)
+
+Happy coding! 😊

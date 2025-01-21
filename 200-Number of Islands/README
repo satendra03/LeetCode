@@ -1,0 +1,49 @@
+# Number of Provinces
+
+## Description
+
+Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+## Approach
+
+1. **Initialize Variables**:
+   - Get the grid dimensions `n` (rows) and `m` (columns).
+   - Create a `visited` matrix of size `n x m` initialized to `false` to track visited cells.
+   - Define direction vectors `dx` and `dy` for navigating up, right, down, and left.
+
+2. **Iterate Through the Grid**:
+   - Loop through each cell in the grid. For each cell:
+     - If the cell contains '1' (land) and has not been visited:
+       - Increment the island count `ans`.
+       - Start a BFS from this cell.
+
+3. **Breadth-First Search (BFS)**:
+   - Use a queue to traverse all connected land cells.
+   - For each cell popped from the queue:
+     - Mark it as visited.
+     - Explore its 4 neighbors (up, right, down, left) using the direction vectors:
+       - If a neighbor is within bounds, contains '1', and is unvisited, push it into the queue.
+
+4. **Count Islands**:
+   - Each BFS traversal corresponds to one island. Increment `ans` for each BFS initiation.
+
+5. **Return Result**:
+   - Return the total count of islands stored in `ans`.
+
+
+
+## How to Use
+
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
+
+## Contact
+
+If you have any questions, suggestions, or feedback, feel free to reach out to me:
+
+- GitHub: [satendra03](https://github.com/satendra03)
+- Email: [satendrakumarparteti.work@gmail.com](mailto:satendrakumarparteti.work@gmail.com)
+
+Happy coding! 😊

@@ -1,0 +1,53 @@
+# Squares of a Sorted Array
+
+## Description
+
+You are given an `m x n` grid where each cell can have one of three values:
+
+- `0` representing an empty cell,
+- `1` representing a fresh orange, or
+- `2` representing a rotten orange.
+Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.
+
+Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return `-1`.
+
+## Approach
+
+1. **Initialize Variables**:
+   - Define direction vectors `dx` and `dy` to represent movement in four directions: up, right, down, and left.
+   - Create a `visited` matrix to keep track of processed cells.
+   - Use a queue to store rotten oranges with their positions and the time step when they were added.
+
+2. **Add Initial Rotten Oranges**:
+   - Traverse the grid to find all initially rotten oranges (`grid[i][j] == 2`).
+   - Add their positions and the time step (0) to the queue and mark them as visited.
+
+3. **Breadth-First Search (BFS)**:
+   - Process the queue while it is not empty:
+     - For each rotten orange, explore its 4 neighboring cells using the direction vectors.
+     - If a neighboring cell contains a fresh orange (`grid[x][y] == 1`), rot it:
+       - Add the neighbor's position and the next time step to the queue.
+       - Mark the cell as visited.
+     - Track the maximum time required (`min`) to rot all reachable oranges.
+
+4. **Check for Unreachable Fresh Oranges**:
+   - After BFS, iterate through the grid to check if there are any unvisited fresh oranges (`grid[i][j] == 1` that are not visited).
+   - If any such orange exists, return `-1`.
+
+5. **Return Result**:
+   - If all fresh oranges are successfully rotted, return the maximum time (`min`) taken.
+
+
+## How to Use
+
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
+
+## Contact
+
+If you have any questions, suggestions, or feedback, feel free to reach out to me:
+
+- GitHub: [satendra03](https://github.com/satendra03)
+- Email: [satendrakumarparteti.work@gmail.com](mailto:satendrakumarparteti.work@gmail.com)
+
+Happy coding! 😊
