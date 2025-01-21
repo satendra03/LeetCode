@@ -1,0 +1,47 @@
+# First Completely Painted Row or Column
+
+## Description
+
+You are given a 0-indexed integer array `arr`, and an `m x n` integer matrix `mat`. `arr` and `mat` both contain all the integers in the range `[1, m * n]`.
+
+Go through each index `i` in `arr` starting from index `0` and paint the cell in `mat` containing the integer `arr[i]`.
+
+Return the smallest index `i` at which either a row or a column will be completely painted in `mat`.
+
+### Approach
+
+1. **Preprocess the Matrix**:
+   - Use a hash map (`data`) to store the position `(row, column)` of each element in the matrix for quick lookups.
+
+2. **Initialize Counters**:
+   - Create two vectors:
+     - `row` to track the count of marked elements in each row.
+     - `col` to track the count of marked elements in each column.
+
+3. **Iterate Over the Input Array**:
+   - For each element in `arr`, find its position `(x, y)` in the matrix using the hash map.
+   - Increment `row[x]` and `col[y]` to reflect the newly marked element.
+
+4. **Check for Completion**:
+   - After updating the counters, check if:
+     - The row is completely marked: `row[x] == n` (where `n` is the number of columns).
+     - The column is completely marked: `col[y] == m` (where `m` is the number of rows).
+   - If either condition is met, return the current index of the element in `arr`.
+
+5. **Return Default**:
+   - If no row or column is completed during the iteration, return the last index in `arr`.
+
+
+## How to Use
+
+1. **Compile**: `g++ -o solution solution.cpp`
+2. **Run**: `./solution`
+
+## Contact
+
+If you have any questions, suggestions, or feedback, feel free to reach out to me:
+
+- GitHub: [satendra03](https://github.com/satendra03)
+- Email: [satendrakumarparteti.work@gmail.com](mailto:satendrakumarparteti.work@gmail.com)
+
+Happy coding! 😊
