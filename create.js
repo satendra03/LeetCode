@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const name = "Undirected Graph Cycle";
+const name = ""; // name of the directory to be created
 function createFolderAndFiles(name) {
     if (!name) {
         console.error("Please provide a name for the folder.");
