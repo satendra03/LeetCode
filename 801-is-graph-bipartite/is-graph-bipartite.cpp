@@ -1,54 +1,41 @@
 class Solution {
+
 public:
     bool isBipartite(vector<vector<int>>& graph) {
         int n = graph.size();
         int m = graph[0].size();
 
-        unordered_set<int> A;
-        unordered_set<int> B;
         vector<bool> visited(n, false);
+        vector<int> color(n, 0);
 
+        bool ans = true;
         for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
-                insert(i, graph, A, B, visited);
+            if (!color[i]) {
+                color[i] = 1;
+                dfs(i, color, graph, ans);
             }
         }
 
-        for (auto i : A)
-            if (B.count(i))
-                return false;
-
-        return true;
+        return ans;
     }
 
 private:
-    void insert(int node, vector<vector<int>>& graph, unordered_set<int>& A,
-                unordered_set<int>& B, vector<bool>& visited) {
-
-        queue<tuple<int, bool>> q;
-        visited[node] = true;
-        A.insert(node);
-        q.push({node, true});
-
-        while (!q.empty()) {
-            auto [i, isFromA] = q.front();
-            visited[i] = true;
-            q.pop();
-
-            if (isFromA) {
-                for (auto elem : graph[i]) {
-                    if (!visited[elem]) {
-                        B.insert(elem);
-                        q.push({elem, false});
-                    }
+    void dfs(int node, vector<int>&color, vector<vector<int>>& graph, bool& ans) {
+        if(color[node] == 1){
+            for(auto adj:graph[node]){
+                if(color[adj] == 0) {
+                    color[adj] = 2;
+                    dfs(adj,color,graph,ans);
                 }
-            } else {
-                for (auto elem : graph[i]) {
-                    if (!visited[elem]) {
-                        A.insert(elem);
-                        q.push({elem, true});
-                    }
+                else if(color[adj] == 1) ans = false;
+            }
+        } else if(color[node] == 2){
+            for(auto adj:graph[node]){
+                if(color[adj] == 0) {
+                    color[adj] = 1;
+                    dfs(adj,color,graph,ans);
                 }
+                else if(color[adj] == 2) ans = false;
             }
         }
     }
