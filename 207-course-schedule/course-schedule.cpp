@@ -10,38 +10,22 @@ public:
             canCompleteTheseIfDoneThis[a].insert(b);
         }
 
-        // cout << "First, have to complete these if I want to completer this:\n";
+        // vector<int>freeCourses;
         // for(int i=0; i<n; i++){
-        //     cout << i << " -> ";
-        //     printSet(toDoThisIhaveToCompleteThese[i]);
-        //     cout << endl;
-        // }
-        // cout << endl;
-        // cout << "I can do these I have i done this one:\n";
-        // for(int i=0; i<n; i++){
-        //     cout << i << " -> ";
-        //     printSet(canCompleteTheseIfDoneThis[i]);
-        //     cout << endl;
+        //     if(toDoThisIhaveToCompleteThese[i].size() == 0) freeCourses.push_back(i);
         // }
 
-        vector<int>freeCourses;
-        for(int i=0; i<n; i++){
-            if(toDoThisIhaveToCompleteThese[i].size() == 0) freeCourses.push_back(i);
-        }
-        // cout << endl;
-        // printArr(freeCourses);
-
-        if(!freeCourses.size()) return false; // if there is no course that is independent then we cant even start
-
-        vector<int> completedCourses;
-        for(auto course:freeCourses) completedCourses.push_back(course);
+        // if(!freeCourses.size()) return false;
 
         vector<bool> completed(n);
         int ans = true;
-        for(auto course:completedCourses){
-            if(!completed[course]){
-                unordered_set<int> prevCourse;
-                ans = ans and explore(course,canCompleteTheseIfDoneThis,completed,prevCourse);
+        for(int i=0; i<n; i++){
+            if(toDoThisIhaveToCompleteThese[i].size() == 0){
+                int course = i;
+                if(!completed[course]){
+                    unordered_set<int> prevCourse;
+                    ans = ans and explore(course,canCompleteTheseIfDoneThis,completed,prevCourse);
+                }
             }
         }
 
@@ -50,7 +34,6 @@ public:
         bool allCompleted = true;
         for(auto isCompleted:completed) if(!isCompleted) allCompleted = false;
         return allCompleted;
-
     }
 private:
     // void printSet(unordered_set<int> & a){
