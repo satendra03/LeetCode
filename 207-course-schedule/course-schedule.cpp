@@ -15,7 +15,7 @@ public:
         for(int i=0; i<n; i++) if(!indegree[i]) q.push(i);
 
         if(q.empty()) return false;
-
+        
         while(!q.empty()){
             int node  = q.front();
             q.pop();
@@ -26,6 +26,7 @@ public:
                 if(!indegree[i]) q.push(i);
             }
         }
-        return ans.size() == n;
+        if( ans.size() == n ) return true;
+        return false;
     }
 };
