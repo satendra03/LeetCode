@@ -2,37 +2,31 @@ class Solution {
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         int n = graph.size();
-        vector<bool> visited(n, false);
-        vector<bool> isAns(n, false);
-        unordered_set<int> path;
-
-        for(int i=0; i<n; i++) if(!visited[i]) dfs(i, graph, visited, path, isAns);
-
-        vector<int> ans;
-        for(int i=0; i<n; i++) if(isAns[i]) ans.push_back(i);
-        return ans;
-    }
-private:
-    bool dfs(int node, vector<vector<int>>& graph, vector<bool>& visited, unordered_set<int>& path, vector<bool>& isAns) {
-        visited[node] = true;
-        path.insert(node);
-        isAns[node] = false;
-        for(auto i:graph[node]){
-            if(!visited[i]) {
-                bool isValid = dfs(i, graph, visited, path, isAns);
-                if(isValid) {
-                    isAns[i] = false;
-                    return true;
-                }
-            }
-            else if(path.count(i)) {
-                    isAns[i] = false;
-                    return true;
-                }
+        vector<vector<int>> adj(n);
+        for(int i=0; i<n; i++) {
+            for(auto node:graph[i]) adj[node].push_back(i);
         }
 
-        isAns[node] = true;
-        path.erase(node);
-        return false;
+        vector<int> indegree(n, 0);
+        for(auto nodes:adj) for(auto node:nodes) indegree[node]++;
+
+        queue<int> q;
+        for(int i=0; i<n; i++) if(!indegree[i]) q.push(i);
+
+        vector<int> ans;
+
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            ans.push_back(node);
+            indegree[node] = -1;
+            for(auto i:adj[node]){
+                indegree[i]--;
+                if(indegree[i] == 0) q.push(i);
+            }
+        }
+
+        sort(ans.begin(), ans.end());
+        return ans;
     }
 };
