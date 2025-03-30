@@ -29,7 +29,7 @@ public:
         return ans;
     }
 private:
-    bool isPalindrome(string str) {
+    bool isPalindrome(string &str) {
         int left = 0;
         int right = str.size() - 1;
         while (left < right) {
