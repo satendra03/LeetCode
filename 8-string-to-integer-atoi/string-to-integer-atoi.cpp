@@ -3,23 +3,23 @@ class Solution {
 public:
     int myAtoi(string s) {
         int n = s.size();
-        ll num =0;
         int index = 0;
+        bool isNegative = false;
         while(index<n and s[index]==' ') index++;
-        bool isNeg = s[index] == '-' ? true:false;
-
-        if(s[index]=='-' or s[index]=='+') index++;
-        while(index<n and s[index]=='0') index++;
-        while(index<n and isdigit(s[index])) {
-            num = num*10 + s[index++] - '0';
-            if(num < INT_MIN or num > INT_MAX) break;
+        if(s[index]=='-' or s[index]=='+') {
+            isNegative = (s[index]=='-');
+            index++;
         }
-
-        if (isNeg) num = -num;
-
-        if (num < INT_MIN) return INT_MIN;
-        if (num > INT_MAX) return INT_MAX;
-
-        return (int)num;
+        long long ans = 0;
+        solve(index, s, ans);
+        if(ans > INT_MAX) return isNegative ? INT_MIN : INT_MAX;
+        return isNegative ? -ans : ans;
+    }
+private:
+    void solve(int index, string& s, long long& ans){
+        if(index >= s.size() or !isdigit(s[index])) return;
+        ans = ans*10 + s[index]-'0';
+        if(ans > INT_MAX) return;
+        solve(index+1, s, ans);
     }
 };
