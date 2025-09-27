@@ -14,15 +14,8 @@ public:
             // now only change the length and breadth when we find the max l or b
 
             // we'll find the next greater height again calculate the area
-            if(height[left] < height[right]){
-                int leftPtr = left+1;
-                for(; leftPtr<right; leftPtr++) if(height[leftPtr] > height[left]) break;
-                left = leftPtr;
-            } else {
-                int rightPtr = right-1;
-                for(; rightPtr>left; rightPtr--) if(height[rightPtr] > height[right]) break;
-                right = rightPtr;
-            }
+            if(height[left] < height[right]) left++;
+            else right--;
 
         }
         return ans;
