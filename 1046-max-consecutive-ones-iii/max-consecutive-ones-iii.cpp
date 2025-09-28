@@ -7,11 +7,11 @@ public:
         
         while(right < n){   
             if(!nums[right]) zeros++;
-            while (zeros > k) {
+            if (zeros > k) {
                 if (nums[left] == 0) zeros--;
                 left++;
             }
-            maxLen = max(maxLen, right-left+1);
+            if(zeros <= k) maxLen = max(maxLen, right-left+1);
             right++;
         }
 
