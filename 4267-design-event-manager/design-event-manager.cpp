@@ -1,64 +1,42 @@
 class EventManager {
 public:
     EventManager(vector<vector<int>>& events) {
-        data = events;
-        sort(data.begin(), data.end());
-        for (auto& e : data) {
-            priority[e[1]].insert(e[0]); // priority[val] = {id1, id2...}
+        for (auto& e : events) {
+            int priority = e[1];
+            int id = e[0];
+            priorityToIds[priority].insert(id);
+            idToPriority[id] = priority;
         }
     }
 
-    void updatePriority(int eventId, int newPriority) {
-        int priorityOfId = getPriorityById(eventId);
-        priority[priorityOfId].erase(eventId);
-        if(priority[priorityOfId].empty()) priority.erase(priorityOfId);
-        priority[newPriority].insert(eventId);
+    void updatePriority(int id, int newPriority) {
+        int oldPriority = idToPriority[id];
 
-        int left = 0, right = data.size() - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (data[mid][0] == eventId) {
-                data[mid][1] = newPriority; // Update the actual data
-                break;
-            }
-            if (data[mid][0] > eventId) right = mid - 1;
-            else left = mid + 1;
-        }
+        auto &s = priorityToIds[oldPriority];
+        s.erase(id);
+        if (s.empty()) priorityToIds.erase(oldPriority);
+
+        priorityToIds[newPriority].insert(id);
+        idToPriority[id] = newPriority;
     }
 
     int pollHighest() {
-        if (priority.empty()) return -1;
+        if (priorityToIds.empty()) return -1;
 
-        auto it = priority.rbegin();
+        auto it = priorityToIds.rbegin();
         int highP = it->first;
         int eventId = *it->second.begin();
 
-        priority[highP].erase(eventId);
-        if (priority[highP].empty()) priority.erase(highP);
+        priorityToIds[highP].erase(eventId);
+        if (priorityToIds[highP].empty()) priorityToIds.erase(highP);
 
         return eventId;
     }
 
 private:
-    vector<vector<int>> data;
-    map<int, set<int>> priority;
+    unordered_map<int, int> idToPriority;
+    map<int, set<int>> priorityToIds;
     // events[i] = [eventIdi, priority​​​​​​​i]
-
-    int getPriorityById(int eventId) {
-        int left = 0;
-        int right = data.size() - 1;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (data[mid][0] == eventId)
-                return data[mid][1];
-            else if (data[mid][0] > eventId)
-                right = mid - 1;
-            else
-                left = mid + 1;
-        }
-        return -1;
-    }
 };
 
 /**
